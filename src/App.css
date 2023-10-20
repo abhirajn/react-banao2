@@ -84,7 +84,10 @@
    font-size: 21px;
  } 
 .mobileview{
+  height: 0;
+  width: 0;
   display: none;
+ 
 }
   }
   
@@ -204,6 +207,8 @@
   padding-right: 0;
 }
 .mobileview{
+  height: 0;
+  width: 0;
   display: none;
 }
 

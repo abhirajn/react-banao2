@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from '../components/Navbar';
-import { Box, Typography } from '@mui/material';
+import { Box, Experimental_CssVarsProvider, Typography } from '@mui/material';
 import UserCard from '../components/UserCard';
 import CircularProgress from '@mui/material/CircularProgress';
 import ViewUser from '../components/ViewUser';
@@ -13,7 +13,8 @@ import MobileView from '../components/MobileView';
 export default function Home() {
 
     const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+    
+  // const handleOpen = () => setOpen(false);
   const handleClose = () => setOpen(false);
 
 
@@ -30,9 +31,35 @@ var key = 0;
 
 const [view , setView] = useState(null);
 
+// const [windowSize, setWindowSize] = useState([
+//   window.innerWidth,
+//   window.innerHeight
+// ]);
+
+// useEffect(() => {
+//   const handleWindowResize = () => {
+//     setWindowSize([window.innerWidth, window.innerHeight]);
+//   };
+
+//   window.addEventListener("resize", handleWindowResize);
+
+//   return () => {
+//     window.removeEventListener("resize", handleWindowResize);
+//   };
+// }, []);
+
+useEffect(()=>{
+if(window.innerWidth < 550){
+  setOpen(true)
+}else{
+  setOpen(false)
+}
+},[view])
+
+
+
 const handleClick = (data)=>{
   setView(data);
-  setOpen(true)
 }
 
     useEffect(() => {
